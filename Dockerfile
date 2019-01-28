@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:11-alpine
 
 MAINTAINER Nick Cook <nrcook@gmail.com>
 
@@ -12,10 +12,10 @@ RUN apk add --no-cache \
     nodejs-npm
 
 ENV VERSION 0.40
-RUN mkdir -p /usr/local/src 
-RUN cd /usr/local/src 
-RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_linux-64bit.tar.gz | tar -xz 
-RUN mv hugo /usr/local/bin/hugo 
+RUN mkdir -p /usr/local/src
+RUN cd /usr/local/src
+RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_linux-64bit.tar.gz | tar -xz
+RUN mv hugo /usr/local/bin/hugo
 WORKDIR /src
 RUN npm -g install \
     brunch \
